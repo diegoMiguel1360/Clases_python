@@ -11,3 +11,5 @@ def edad():
         print('Viene por el else')
 
 edad()
+
+'''Las funciones que se llaman a si mismas se denominan RECURSIVAS'''
