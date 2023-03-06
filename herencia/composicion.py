@@ -2,14 +2,14 @@
 si el objeto o la clase se elimina los objetos creados tambien'''
 
 class Curso:
-    def __init__(self,titulo):
+    def __init__(self,titulo):#Constructor
         self.__titulo=titulo#Se crea la variable con el titulo del curso
 
     def getTitulo(self):#Metodo get para ver el titulo del objeto
         return self.__titulo
 
 class Aprendiz:
-    def __init__(self,nombre):
+    def __init__(self,nombre):#Constructor
         self.__nombre=nombre
         self.__cursos=[]#Se crea una lista vacia
 
@@ -24,5 +24,5 @@ ap=Aprendiz('Sofia')#instanciamos el objeto ap de la clase Aprendiz
 ap.agregarCurso('Python Basico')#llamamos el metodo agregarCurso
 ap.agregarCurso('Python Intermedio')
 
-for c in ap.getCursos():#Se itera
-    print(c.getTitulo())
+for c in ap.getCursos():#Se itera la lista cursos creada en la liena 14
+    print(c.getTitulo())#se muestran los cursos
