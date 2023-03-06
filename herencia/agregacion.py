@@ -20,8 +20,8 @@ class Curso:
         return self.__titulo
     
 a=Aprendiz('Martha')
-c1=Curso('Python Intermedio')#Los cursos se crean como objetos de la clase Curso
-c2=Curso('Python Basico')
+c1=Curso('Python Intermedio')#Los cursos se crean como objetos de la clase Curso y
+c2=Curso('Python Basico')#para este momento son independientes de la clase aprendiz
 c3=Curso('Introduccion a Java')
 
 a.agregarCurso(c1)#Se agregan los cursos al objeto aprendiz usando el metodo para ello
@@ -31,5 +31,5 @@ a.agregarCurso(c3)
 print(a.getCursos())#Muestra la dirección en memoria de los cursos
 
 
-for curso in a.getCursos():#se itera la lista cursos creada en la linea 7
+for curso in a.getCursos():#se itera la lista cursos creada en la linea 7 usando el metodo getter sobre el objeto
     print(curso.getTitulo())
