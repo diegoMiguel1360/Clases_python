@@ -19,27 +19,86 @@ class Usuario:
         self.email=email
 
 class Instructor(Usuario):
-    def __init__(self, id, nombres, apellidos, edad, telefono, email, contraseña,profesion,certificado):
-        super().__init__(id, nombres, apellidos, edad, telefono, email, contraseña)
+    def __init__(self,id,nombres,apellidos,edad,telefono,email,contraseña,profesion,certificado):
+        super().__init__(id,nombres,apellidos,edad,telefono,email,contraseña)
         self.profesion=profesion
         self.__certificado=certificado
-        self.__cursos_asignados=[]
+        self.__materias_asignadas=[]
 
-    def getCertificado(self):
-        return self.profesion,self.__certificado
-    def getCursos_asignados(self):
-        return self.__cursos_asignados
+    def getInstructor(self):
+        return self.getUsuario(),self.profesion,self.__certificado
+    def getMaterias_asignadas(self):
+        return self.__materias_asignadas
     
     def setProfesion(self,profesion):
         self.profesion=profesion
     def setCertificado(self,certificado):
         self.__certificado=certificado
 
-    def agregar_curso(self,curso):
-        self.__cursos_asignados.append(curso)
+    def agregar_materia(self,materia):
+        self.__materias_asignadas.append(materia)
+        
+    def procesar_matricula(self,matricula):
+        return
 
 class Estudiante(Usuario):
-    pass
+    def __init__(self,id,nombres,apellidos,edad,telefono,email,contraseña):
+        super().__init__(id,nombres,apellidos,edad,telefono,email,contraseña)
+        self.curso=''
+        self.jornada=''
+        self.semestre=0
+    
+    def getEstudiante(self):
+        return self.getUsuario(),self.curso,self.jornada,self.semestre
+        
+    def generar_inscripcion(self,nueva_inscripcion,detalle,requisitos,fecha,id_curso,jornada):
+        self.__nueva_inscripcion=Inscripcion(nueva_inscripcion,detalle,requisitos,fecha,id_curso,jornada)
+        self.curso=id_curso
+        self.jornada=jornada
+        self.semestre+=1
 
-us=Usuario(1546,'diego','moreno',12,156456,'ssff','dgdg')
-print(us.getUsuario())
+class Matricula:
+    def __init__(self,id,detalle,fecha,valor):
+        self.__id=id
+        self.detalle=detalle
+        self.fecha=fecha
+        self.__valor=valor
+
+class Materia:
+    def __init__(self,id,nombre,descripcion):
+        self.__id=id
+        self.nombre=nombre
+        self.descripcion=descripcion
+        self.cronograma=''
+        self.__instructor=''
+
+class Inscripcion:
+    def __init__(self,id,detalle,requisitos,fecha,id_curso,jornada):
+        self.__id=id
+        self.detalle=detalle
+        self.requisitos=requisitos
+        self.fecha=fecha
+        self.__id_curso=id_curso
+        self.jornada=jornada
+        self.__estado='pendiente'
+
+class Curso:
+    def __init__(self,id,nombre,descripcion,fecha,nivel,cupo):
+        self.__id=id
+        self.nombre=nombre
+        self.descripcion=descripcion
+        self.fecha=fecha
+        self.nivel=nivel
+        self.cupo=cupo
+        self.__pensum=[]
+        self.__integrantes=[]
+        
+    def getCurso(self):
+        return self.__id,self.nombre,self.descripcion,self.fecha,self.nivel
+    
+    
+
+us=Estudiante(1546,'diego','moreno',12,156456,'ssff','dgdg')
+print(us.getEstudiante())
+us.generar_inscripcion(123,'dfdsf','sdds',32323,654,'M')
+print(us.getEstudiante())
