@@ -96,9 +96,12 @@ class Curso:
     def getCurso(self):
         return self.__id,self.nombre,self.descripcion,self.fecha,self.nivel
     
+
+    
     
 
-us=Estudiante(1546,'diego','moreno',12,156456,'ssff','dgdg')
-print(us.getEstudiante())
-us.generar_inscripcion(123,'dfdsf','sdds',32323,654,'M')
-print(us.getEstudiante())
+us=Usuario(1546,'diego','moreno',12,156456,'ssff','dgdg')
+#us.generar_inscripcion(123,'dfdsf','sdds',32323,654,'M')
+print(us.getUsuario())
+as1=Usuario(548654,'miguel','sanchez',5646,87564,'dhfgdj','dhfdjk')
+
