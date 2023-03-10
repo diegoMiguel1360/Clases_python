@@ -90,11 +90,11 @@ class Materia:
         self.cronograma=''
         self.__instructor=[]
     
-    def getMateria():
+    def getMateria(self):
         return self.__id,self.nombre,self.descripcion
-    def getCronograma():
+    def getCronograma(self):
         return self.cronograma
-    def getInstructor():
+    def getInstructor(self):
         return self.__instructor
     
     def setNombre(self,nombre):
