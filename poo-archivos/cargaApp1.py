@@ -9,3 +9,4 @@ for i in range (len(carg1)-1):
     print(carg2)
     for j in carg2:
         print(j)
+        
