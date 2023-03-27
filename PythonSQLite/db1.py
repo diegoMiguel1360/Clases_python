@@ -11,4 +11,22 @@ def miselect(conexion,tabla,campo,operador,dato):#definimos la funcion miselect 
     #print(sentencia)
     print(micursor.execute(sentencia).fetchall())#se ejecuta la sentencia con el metodo .execute() y traemos todos los campos con .fetchall()
 
+def modificar(con,tabla,campo,dato,id):
+    micursor=con.cursor()
+    sentencia=f"UPDATE {tabla} SET {campo}='{dato} WHERE id = '{id}';"
+    micursor.execute(sentencia)
+    con.commit()#Este metodo se usa cuando se requiera modificar información en db
+    print("Modificacion correcta")
+
+def eliminar(con,tabla,campo,dato):
+    micursor=con.cursor()
+    sentencia=f"DELETE FROM {tabla} WHERE {campo}='{dato}'"
+    micursor.execute(sentencia)
+    con.commit()#
+    print("Eliminacion correcta")
+
+
+
 miselect(con,'alumno','email','=','dbrabon2@irs.gov')#se llama la funcion con los parametros necesarios
+modificar(con,'alumno','nombre','Vegeta',1)
+eliminar(con,'alumno','id',3)
